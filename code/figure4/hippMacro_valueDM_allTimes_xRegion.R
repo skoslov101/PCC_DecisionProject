@@ -1,9 +1,19 @@
+########### ########## ############ ########### ############
+########### ########## ############ ########### ############
+########### ########## ############ ########### ############
+###               Apply to timeseries data              ####
+###                   ValBased - Choice                 ####
+########### ########## ############ ########### ############
+########### ########## ############ ########### ############
+########### ########## ############ ########### ############
+
 rm(list=ls())
 library(doBy)
 library(reshape2)
 library(ggplot2)
 library(lme4)
 library(lmerTest)
+library(data.table)
 
 nanmean=function(x)(mean(x,na.rm=T))
 
@@ -12,7 +22,7 @@ se <- function(x) {
   return(se=se)
 }
 
-#Load the data
+#Load the data. Recording sites that did not pass quality assessment (e.g. frequent interictal spiking activity) have been removed already.
 outDir='<path2folder>/figures/Figure4'
 baseDir='<path2folder>/data/valueDM/hippocampus'
 
